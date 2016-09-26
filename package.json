@@ -1,0 +1,22 @@
+{
+  "name": "node-async-weather",
+  "version": "1.0.0",
+  "description": "Node Weather App",
+  "main": "hello-async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmorelli25/node-async-weather.git"
+  },
+  "author": "Brandon Morelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmorelli25/node-async-weather/issues"
+  },
+  "homepage": "https://github.com/bmorelli25/node-async-weather#readme",
+  "dependencies": {
+    "request": "^2.60.0"
+  }
+}
