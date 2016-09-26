@@ -5,7 +5,7 @@ var url = `http://api.openweathermap.org/data/2.5/weather?q=Portland&units=imper
 
 module.exports = function (callback) {
   request({
-    url: url,
+    url,
     json: true
   }, function (error, response, body) {
     if (error) {
