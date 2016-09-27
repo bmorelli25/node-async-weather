@@ -1,16 +1,29 @@
 var weather = require('./weather.js');
 var location = require('./location.js');
 
- weather(function (currentWeather) {
-   console.log(currentWeather);
- });
+var argv = require('yargs')
+  .option('location', {
+    alias: 'l',
+    demand: false,
+    describe: 'Location to fetch weather',
+    type: 'string'
+  })
+  .help('help')
+  .argv;
 
-location(function (location) {
-  if (!location) {
-    console.log('Unable to guess location');
-    return;
-  };
+if (typeof argv.l === 'string' && argv.l.length > 0) {
+  weather(argv.l, function (currentWeather) {
+    console.log(currentWeather);
+  });
+} else {
+  location(function (location) {
+    if (!location) {
+      console.log('Unable to guess location');
+      return;
+    };
 
-  console.log('city: ' + location.city);
-  console.log('lat/lng: ' + location.loc);
-});
+    weather(location.city, function (currentWeather) {
+      console.log(currentWeather);
+    });
+  });
+};
