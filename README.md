@@ -16,4 +16,4 @@ How to use:
 
 2.  Request the weather for your current location (as determined by IP) by running: ```npm start```
 
-3.  Specify any location by using the location flag: ```npm start -l Boston```
+3.  Specify any location by using the location flag: ```npm start -- -l Boston```
