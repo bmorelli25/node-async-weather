@@ -24,7 +24,7 @@ var request = require('request');
 
 function getWeather (location) {
   return new Promise(function (resolve, reject) {
-    var apiKey = '';
+    var apiKey = process.env.API_KEY;
     var url = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&units=imperial&APPID=${apiKey}`;
 
     if (!location) {

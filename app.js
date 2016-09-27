@@ -11,23 +11,6 @@ var argv = require('yargs')
   .help('help')
   .argv;
 
-// if (typeof argv.l === 'string' && argv.l.length > 0) {
-//   weather(argv.l, function (currentWeather) {
-//     console.log(currentWeather);
-//   });
-// } else {
-//   location(function (location) {
-//     if (!location) {
-//       console.log('Unable to guess location');
-//       return;
-//     };
-//
-//     weather(location.city, function (currentWeather) {
-//       console.log(currentWeather);
-//     });
-//   });
-// };
-
 if (typeof argv.l === 'string' && argv.l.length > 0) {
   weather(argv.l).then(function (currentWeather) {
     console.log(currentWeather);
