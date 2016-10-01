@@ -12,17 +12,18 @@ Node js application that accepts a location input or uses the users IP address t
 
 -----
 
-How to use:
+###HACKTOBERFEST!
 
-1.  ```npm install```
+Want to contribute? Here's how:
 
-2.  Navigate to [OpenWeatherMap](http://openweathermap.org/) and request your free API Key. 
-
-3.  Set your API Key to your machine using enviornment variables: ```API_KEY```
-
+1.  First ```fork``` and ```star``` the project.
+2.  Run ```npm install``` to install all needed dependencies.
+3.  Navigate to [OpenWeatherMap's ](http://openweathermap.org/) and get a free API key. 
+4.  Set your API Key to your machine using enviornment variables: ```API_KEY```
+    
     Example: ```API_KEY=yourKeyHere```
     Windows Example: ```SET API_KEY=yourKeyHere```
+5.  Request the weather for your current location (as determined by IP) by running: ```npm start```
+6.  Specify any location by using the location flag: ```npm start -- -l Boston```
+7.  Browse the open issues, join the discussion, and push your code. All accepted Pull Requests will have their names added as contributors to the project. Thanks for all your help!
 
-2.  Request the weather for your current location (as determined by IP) by running: ```npm start```
-
-3.  Specify any location by using the location flag: ```npm start -- -l Boston```
