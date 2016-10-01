@@ -20,7 +20,7 @@ Want to contribute? Here's how:
 1.  First ```fork``` and ```star``` the project.
 2.  Run ```npm install``` to install all needed dependencies.
 3.  Navigate to [OpenWeatherMap's ](http://openweathermap.org/) and get a free API key. 
-r.  Set your API Key. There are two methods:
+4.  Set your API Key. There are two methods:
 	
 	- Set an environment variable: ```API_KEY```
 
