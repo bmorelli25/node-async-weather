@@ -29,5 +29,6 @@ Want to contribute? Here's how:
     a) Specify any location by using the location flag: ```npm start -- -l Boston```&nbsp;
 6.  Request the weather forecast for your current location (as determined by IP) by running: ```npm start -- -f```
 
-    a) Specify any location as you would with the location flag: ```npm start -- -l Denver```
+    a) Specify any location as you would with the location flag: ```npm start -- -f Denver```&nbsp;
+    b) Note that you can specify only one location for both parameters or specify the location for both parameters
 7.  Browse the open issues, join the discussion, and push your code. All accepted Pull Requests will have their names added as contributors to the project. Thanks for all your help!
