@@ -7,6 +7,7 @@ Node js application that accepts a location input or uses the users IP address t
 
 * [request](https://github.com/request/request) - simple HTTP client
 * [yargs](http://yargs.js.org/) - for easy variables in the command line
+* [dotenv](https://www.npmjs.com/package/dotenv) - Environment variables storage in file
 * [OpenWeatherMap](http://openweathermap.org/) - free weather api
 * [IPinfo.io](http://ipinfo.io/) - free ip location lookup api
 
@@ -14,6 +15,7 @@ Node js application that accepts a location input or uses the users IP address t
 
 ###HACKTOBERFEST!
 
+<<<<<<< HEAD
 Want to contribute? Here's how:
 
 1.  First ```fork``` and ```star``` the project.
@@ -26,4 +28,19 @@ Want to contribute? Here's how:
 5.  Request the weather for your current location (as determined by IP) by running: ```npm start```
 6.  Specify any location by using the location flag: ```npm start -- -l Boston```
 7.  Browse the open issues, join the discussion, and push your code. All accepted Pull Requests will have their names added as contributors to the project. Thanks for all your help!
+=======
+1.  ```npm install```
+
+2.  Navigate to [OpenWeatherMap](http://openweathermap.org/) and request your free API Key. 
+
+3.  Set your API Key. There are two methods:
+	
+	- Set an environment variable: ```API_KEY```
+
+    	Example: ```API_KEY=yourKeyHere```
+
+    	Windows Example: ```SET API_KEY=yourKeyHere```
+
+    - Create a `.env` file in the root of the project with the content of ```API_KEY=yourKeyHere```
+>>>>>>> 9915898... Resolving issue #1. Added capability of using a  file in place of setting an environment variable for setting up the API key.
 

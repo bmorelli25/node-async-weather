@@ -1,3 +1,4 @@
+require('dotenv').config({silent:true});
 var weather = require('./weather.js');
 var location = require('./location.js');
 
