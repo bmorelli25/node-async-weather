@@ -16,7 +16,7 @@ module.exports = function (location) {
       if (error) {
         reject('Unable to fetch Weather: ', error.message);
       } else { // Print entire JSON 'nicely': console.log(JSON.stringify(body, null, 4));
-        var location = body.name
+        var location = body.name;
         var temp = body.main.temp;
         var message = `It's ${temp} degrees in ${location}!`;
         resolve(message);

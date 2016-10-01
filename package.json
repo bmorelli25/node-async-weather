@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bmorelli25/node-async-weather#readme",
   "dependencies": {
+    "cli-table2": "^0.2.0",
     "request": "^2.60.0",
     "yargs": "^3.15.0"
   }
