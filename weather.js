@@ -1,13 +1,14 @@
-var request = require('request');
+let request = require('request');
 
 module.exports = function (location) {
   return new Promise (function (resolve, reject) {
-    var API_KEY = process.env.API_KEY;
+    let API_KEY = process.env.API_KEY;
+
     if(typeof(API_KEY) == "undefined" || API_KEY.length == 0) {
       return reject("No API key set. (Create a .env file or set an API_KEY environment variable)");
     }
 
-    var url = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&units=imperial&APPID=${API_KEY}`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&units=imperial&APPID=${API_KEY}`;
 
     if (!location) {
       reject('No Location Provided');
@@ -20,9 +21,14 @@ module.exports = function (location) {
       if (error) {
         reject('Unable to fetch Weather: ', error.message);
       } else { // Print entire JSON 'nicely': console.log(JSON.stringify(body, null, 4));
-        var location = body.name;
-        var temp = body.main.temp;
-        var message = `It's ${temp} degrees in ${location}!`;
+        let message = ``;
+        if(body.cod == 200) {
+          let location = body.name;
+          let temp = body.main.temp;
+          message = `It's ${temp} degrees in ${location}!`;
+        } else {
+          message = `${body.cod} - ${body.message}`;
+        }
         resolve(message);
       };
     });

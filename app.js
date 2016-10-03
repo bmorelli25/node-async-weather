@@ -1,9 +1,9 @@
 require('dotenv').config({silent:true});
-var weather = require('./weather.js');
-var location = require('./location.js');
-var forecast = require('./forecast.js');
+let weather = require('./weather.js');
+let location = require('./location.js');
+let forecast = require('./forecast.js');
 
-var argv = require('yargs')
+let argv = require('yargs')
   .command(function (yargs) {
     yargs.options({
       location: {
@@ -17,27 +17,13 @@ var argv = require('yargs')
         alias: 'f',
         description: 'Forecast of searched city',
         type: 'string'
-      }      
-    }).help('help'); 
+      }
+    }).help('help');
   })
   .help('help')
   .argv;
 
-if (typeof argv.l === 'string' && argv.l.length > 0) {
-  weather(argv.l).then(function (currentWeather) {
-    console.log(currentWeather);
-  }, function (error) {
-    console.log(error);
-  });
-
-}else if(typeof argv.f === 'string' && argv.f.length > 0) {
-  forecast(argv.f).then(function (currentForecast) {
-    console.log(currentForecast);
-  }, function (error) {
-    console.log(error);
-  });    
-}
- else {
+const defaultWeather = function() {
   if (!location) {
     console.log('Unable to guess location');
     return;
@@ -50,4 +36,54 @@ if (typeof argv.l === 'string' && argv.l.length > 0) {
   }).catch(function (error) {
     console.log(error);
   });
-};
+}
+const defaultForecast = function() {
+  if (!location) {
+    console.log('Unable to guess location');
+    return;
+  };
+
+  location().then(function (userLocation) {
+    return forecast(userLocation.city);
+  }).then(function (forecastWeather) {
+    console.log(forecastWeather);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
+
+if ((typeof argv.l !== 'undefined') || (typeof argv.f !== 'undefined')) {
+   if (typeof argv.l === 'string' && argv.l.length >= 0) { //user has input a location to the -l parameter
+     weather(argv.l).then(function (currentWeather) {
+       console.log(currentWeather);
+     }, function (error) {
+       console.log(error);
+     });
+   } else if (typeof argv.f === 'string' && argv.f.length >= 0 && typeof argv.l === 'boolean') { //user has not input a location to the -l parameter but did to the -f parameter
+     weather(argv.f).then(function (currentWeather) {
+       console.log(currentWeather);
+     }, function (error) {
+       console.log(error);
+     });
+   } else if (typeof argv.l === 'boolean') { //user has not input a location to the -l parameter but wants the weather for his location
+     defaultWeather();
+   }
+
+   if (typeof argv.f === 'string' && argv.f.length >= 0) { //user has input a location to the -f parameter
+     forecast(argv.f).then(function (forecastWeather) {
+       console.log(forecastWeather);
+     }, function (error) {
+       console.log(error);
+     });
+   } else if (typeof argv.l === 'string' && argv.l.length >= 0 && typeof argv.f === 'boolean') { //user has not input a location to the -f parameter but did to the -l parameter
+     forecast(argv.l).then(function (forecastWeather) {
+       console.log(forecastWeather);
+     }, function (error) {
+       console.log(error);
+     });
+   } else if (typeof argv.f === 'boolean') { //user has not input a location to the -f parameter but wants the forecast for his location
+     defaultForecast();
+   }
+} else { //no parameter
+  defaultWeather();
+}
