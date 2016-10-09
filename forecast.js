@@ -1,10 +1,12 @@
+'use strict';
 let request = require('request'),
     Table = require('cli-table2');
 
-module.exports = function (location) {
+module.exports = function (location, unit) {
+
   return new Promise (function (resolve, reject) {
     let API_KEY = process.env.API_KEY,
-        url = `http://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(location)}&units=imperial&APPID=${API_KEY}`;
+        url = `http://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(location)}&units=${unit}&APPID=${API_KEY}`;
 
     if(typeof(API_KEY) == "undefined" || API_KEY.length == 0) {
       return reject("No API key set. (Create a .env file or set an API_KEY environment variable)");
