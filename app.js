@@ -60,8 +60,8 @@ const defaultForecast = function() {
   });
 }
 
-if(typeof argv.unit === 'string' && argv.unit.length >= 0 && (argv.unit === 'C' || argv.unit === 'F')) {
-  if(argv.unit === 'C') {
+if(typeof argv.u === 'string' && argv.u.length >= 0 && (argv.u === 'C' || argv.u === 'F')) {
+  if(argv.u === 'C') {
     unit = 'metric';
   }
 }
