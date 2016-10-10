@@ -60,10 +60,8 @@ const defaultForecast = function() {
   });
 }
 
-if(typeof argv.u === 'string' && argv.u.length >= 0 && (argv.u === 'C' || argv.u === 'F')) {
-  if(argv.u === 'C') {
-    unit = 'metric';
-  }
+if(typeof argv.u === 'string' && argv.u === 'C') {
+  unit = 'metric';
 }
 
 if ((typeof argv.l !== 'undefined') || (typeof argv.f !== 'undefined')) {
