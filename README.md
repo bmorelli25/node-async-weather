@@ -1,5 +1,5 @@
 ### node-async-weather
-Node Weather Application
+**A simple Node Weather Application**
 
 -----
 
@@ -12,16 +12,18 @@ Node js application that accepts a location input or uses the users IP address t
 * [IPinfo.io](http://ipinfo.io/) - free ip location lookup api
 * [CLI-Table2](https://github.com/jamestalmage/cli-table2) -  pretty unicode tables for the command line
 
------
+-------------
 
 ###HACKTOBERFEST!
+This project was featured during DigitalOcean's 2016 HACKTOBERFEST! Thanks to everyone who contributed in both discussion and coding! 
 
-Want to contribute? Here's how:
+-------------
 
-1.  First ```fork``` and ```star``` the project.
-2.  Run ```npm install``` to install all needed dependencies.
-3.  Navigate to [OpenWeatherMap's ](http://openweathermap.org/) and get a free API key.
-4.  Set your API Key. There are two methods:
+How to run the app locally:
+
+1.  Run ```npm install``` to install all needed dependencies.
+2.  Navigate to [OpenWeatherMap's ](http://openweathermap.org/) and get a free API key.
+3.  Set your API Key. There are two methods:
 
 	- Set an environment variable: ```API_KEY```
 
@@ -31,13 +33,11 @@ Want to contribute? Here's how:
 
     - Create a `.env` file in the root of the project with the content of ```API_KEY=yourKeyHere```
 
-5.  Request the weather for your current location (as determined by IP) by running: ```npm start```
+4.  Request the weather for your current location (as determined by IP) by running: ```npm start```
 
     - Specify any location by using the location flag: ```npm start -- -l Boston```
 
-6.  Request the weather forecast for your current location (as determined by IP) by running: ```npm start -- -f```
+5.  Request the weather forecast for your current location (as determined by IP) by running: ```npm start -- -f```
 
     - Specify any location as you would with the location flag: ```npm start -- -f Denver```
     - Note that you can specify only one location for both parameters or specify the location for both parameters
-
-7.  Browse the open issues, join the discussion, and push your code. All accepted Pull Requests will have their names added as contributors to the project. Thanks for all your help!
